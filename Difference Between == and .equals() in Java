@@ -1,0 +1,40 @@
+🔹 Difference Between == and .equals() in Java
+✅ 1️⃣ == Operator
+
+Compares memory reference (address)
+
+Checks whether two objects point to the same location
+
+For primitive types, it compares actual values
+
+Example (Primitive)
+int a = 10;
+int b = 10;
+
+System.out.println(a == b);   // true (values are equal)
+Example (Objects)
+String s1 = new String("Java");
+String s2 = new String("Java");
+
+System.out.println(s1 == s2);   // false (different memory locations)
+
+👉 Even though content is same, objects are different.
+
+✅ 2️⃣ .equals() Method
+
+Compares content/value of objects
+
+Defined in Object class
+
+Many classes like String, Integer, ArrayList override it
+
+Example
+String s1 = new String("Java");
+String s2 = new String("Java");
+
+System.out.println(s1.equals(s2));   // true (content is equal)
+🔹 Special Case: String Literal
+String s1 = "Java";
+String s2 = "Java";
+
+System.out.println(s1 == s2);   // true
