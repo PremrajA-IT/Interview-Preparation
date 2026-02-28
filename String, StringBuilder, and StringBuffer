@@ -1,0 +1,53 @@
+🔥 Difference Between String, StringBuilder, and StringBuffer
+🔹 1️⃣ String
+✅ Key Points:
+
+Immutable (cannot change once created)
+
+Stored in String Constant Pool
+
+Thread-safe (because immutable)
+
+Slower if frequently modified
+
+Example:
+String s = "Java";
+s.concat(" World");
+System.out.println(s);   // Output: Java
+
+👉 It doesn’t change because String is immutable.
+It creates a new object in memory.
+
+🔹 2️⃣ StringBuilder
+✅ Key Points:
+
+Mutable (can modify without creating new object)
+
+Not thread-safe
+
+Faster than StringBuffer
+
+Introduced in Java 1.5
+
+Example:
+StringBuilder sb = new StringBuilder("Java");
+sb.append(" World");
+System.out.println(sb);   // Output: Java World
+
+👉 Same object gets modified.
+
+🔹 3️⃣ StringBuffer
+✅ Key Points:
+
+Mutable
+
+Thread-safe (methods are synchronized)
+
+Slower than StringBuilder
+
+Used in multi-threaded environments
+
+Example:
+StringBuffer sb = new StringBuffer("Java");
+sb.append(" World");
+System.out.println(sb);   // Output: Java World
