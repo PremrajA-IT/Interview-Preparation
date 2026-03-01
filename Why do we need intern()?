@@ -1,0 +1,39 @@
+Why do we need intern()?
+
+When we create a String using new, it creates a separate object in Heap memory.
+
+intern() helps to:
+
+Move that string reference to String Pool
+
+Or return the already existing pooled reference
+
+🔹 Example Without intern()
+String s1 = new String("Java");
+String s2 = "Java";
+
+System.out.println(s1 == s2);   // false
+
+Why?
+
+s1 → Heap object
+
+s2 → SCP object
+
+Different memory references
+
+🔹 Example With intern()
+String s1 = new String("Java");
+String s2 = "Java";
+
+s1 = s1.intern();
+
+System.out.println(s1 == s2);   // true
+
+Now:
+
+intern() returns reference from SCP
+
+Both point to same memory
+
+== becomes true ✅
