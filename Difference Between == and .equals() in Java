@@ -1,40 +1,70 @@
-🔹 Difference Between == and .equals() in Java
-✅ 1️⃣ == Operator
+# Difference Between `==` and `.equals()` in Java
 
-Compares memory reference (address)
+## 1. `==` Operator
 
-Checks whether two objects point to the same location
+### Description
+- Compares **memory reference (address)**
+- Checks whether two objects point to the same location in memory
+- For **primitive types**, it compares actual values
 
-For primitive types, it compares actual values
-
-Example (Primitive)
+### Example with Primitives
+```java
 int a = 10;
 int b = 10;
 
 System.out.println(a == b);   // true (values are equal)
-Example (Objects)
+```
+
+### Example with Objects
+```java
 String s1 = new String("Java");
 String s2 = new String("Java");
 
 System.out.println(s1 == s2);   // false (different memory locations)
+```
 
-👉 Even though content is same, objects are different.
+> ⚠️ **Note:** Even though the content is the same, these objects are different because they exist at different memory addresses.
 
-✅ 2️⃣ .equals() Method
+---
 
-Compares content/value of objects
+## 2. `.equals()` Method
 
-Defined in Object class
+### Description
+- Compares **content/value** of objects
+- Defined in the `Object` class
+- Many classes like `String`, `Integer`, `ArrayList` override it for custom comparison logic
 
-Many classes like String, Integer, ArrayList override it
-
-Example
+### Example
+```java
 String s1 = new String("Java");
 String s2 = new String("Java");
 
 System.out.println(s1.equals(s2));   // true (content is equal)
-🔹 Special Case: String Literal
+```
+
+---
+
+## 3. Special Case: String Literals
+
+When using String literals (not the `new` keyword), Java uses the **String Pool**:
+
+```java
 String s1 = "Java";
 String s2 = "Java";
 
-System.out.println(s1 == s2);   // true
+System.out.println(s1 == s2);   // true (both point to same location in String Pool)
+```
+
+> 💡 **Why?** String literals are stored in a special memory region called the **String Pool**, so both variables reference the same object.
+
+---
+
+## Quick Comparison Table
+
+| Feature | `==` | `.equals()` |
+|---------|------|-----------|
+| **Compares** | Memory reference | Content/Value |
+| **For Primitives** | Compares values | N/A |
+| **For Objects** | Compares memory address | Compares content |
+| **Overridable** | No | Yes |
+| **Default behavior** | Reference equality | Defined by class |
